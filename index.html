@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Imran Hasan Badhon — Digital Portfolio</title>
+<meta name="description" content="Imran Hasan Badhon — Software Development, Data Science, Machine Learning and Computer Vision.">
+<style>
+:root{--bg:#05070b;--ink:#f5f7fb;--muted:#9aa5b5;--line:#1a2230;--cyan:#59f3ff;--violet:#8d6bff;--lime:#d8ff62;--max:1220px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.23;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 44px),var(--max));margin:auto}
+nav{position:fixed;z-index:50;top:0;left:0;right:0;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(5,7,11,.68);backdrop-filter:blur(18px)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.03em}.logoMark{width:34px;height:34px;border:1px solid var(--cyan);display:grid;place-items:center;color:var(--cyan);font-size:12px}.navlinks{display:flex;gap:25px;color:#aeb8c7;font-size:13px}.navlinks a:hover{color:var(--cyan)}
+.hero{min-height:100vh;padding:145px 0 80px;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:55px}.micro{font:700 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--cyan);letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(58px,8vw,112px);line-height:.88;letter-spacing:-.075em;margin:18px 0 30px}.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1px #748094}.hero p{font-size:18px;color:var(--muted);max-width:690px;line-height:1.8}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}.btn{padding:13px 17px;border:1px solid #283345;font-weight:800;font-size:13px}.btn.primary{background:var(--lime);border-color:var(--lime);color:#080b0d}.btn:hover{transform:translateY(-2px)}
+.portrait{position:relative;min-height:610px;display:flex;align-items:center;justify-content:center}.portrait .ring{position:absolute;width:min(520px,90%);aspect-ratio:1;border:1px solid rgba(89,243,255,.32);border-radius:50%;box-shadow:0 0 80px rgba(89,243,255,.12),inset 0 0 80px rgba(141,107,255,.06)}.portrait .ring:after{content:"";position:absolute;inset:13%;border:1px dashed rgba(216,255,98,.28);border-radius:50%;animation:spin 22s linear infinite}.portrait img{position:relative;z-index:2;width:min(470px,82%);height:560px;object-fit:cover;object-position:center top;filter:saturate(.88) contrast(1.06);mix-blend-mode:normal}.floating{position:absolute;z-index:4;padding:12px 15px;background:#0b1018;border:1px solid #263246;font:700 11px ui-monospace,SFMono-Regular,monospace;box-shadow:0 18px 50px #0008}.f1{top:12%;right:0;color:var(--cyan)}.f2{bottom:13%;left:0;color:var(--lime)}.f3{bottom:6%;right:8%;color:#bbaaff}
+@keyframes spin{to{transform:rotate(360deg)}}
+.marquee{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap}.track{display:inline-flex;gap:42px;padding:18px 0;animation:marquee 25s linear infinite;color:#657184;font:800 13px ui-monospace,monospace;text-transform:uppercase}.track b{color:var(--cyan)}@keyframes marquee{to{transform:translateX(-50%)}}
+section{padding:110px 0}.sectionNo{color:var(--cyan);font:800 11px ui-monospace,monospace;letter-spacing:.15em}.title{display:flex;align-items:end;justify-content:space-between;gap:30px;margin:10px 0 42px}.title h2{font-size:clamp(38px,5vw,65px);line-height:1;letter-spacing:-.06em;margin:0}.title p{color:var(--muted);max-width:430px}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}.bigquote{font-size:clamp(28px,4vw,48px);line-height:1.12;letter-spacing:-.04em;margin:0}.bigquote span{color:var(--cyan)}.copy{color:var(--muted);font-size:16px;line-height:1.9}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);background:linear-gradient(145deg,#0a0f17,#070a10);padding:25px;min-height:180px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:100px;height:100px;border-radius:50%;right:-40px;top:-40px;background:var(--cyan);filter:blur(65px);opacity:.12}.card h3{margin:0 0 12px}.card p{color:var(--muted);margin:0}.tags{margin-top:18px}.tag{display:inline-block;border:1px solid #283345;padding:5px 8px;margin:3px;font:700 10px ui-monospace,monospace;color:#b6c1d1}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}.project{border:1px solid var(--line);background:#080c13;padding:28px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between;position:relative}.projectNo{font:800 11px ui-monospace,monospace;color:var(--violet)}.project h3{font-size:32px;letter-spacing:-.04em;margin:14px 0}.project p{color:var(--muted);max-width:540px}.project .arrow{font-size:24px;color:var(--cyan);align-self:flex-end}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:15px}.info .card{min-height:220px}.line{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:12px 0;color:var(--muted);font-size:13px}.line strong{color:var(--ink);text-align:right}
+.contact{border:1px solid #243044;background:linear-gradient(135deg,#09131b,#0b0914);padding:55px;display:grid;grid-template-columns:1fr 1fr;gap:40px}.contact h2{font-size:clamp(42px,6vw,76px);line-height:.95;letter-spacing:-.065em;margin:10px 0 20px}.contact p{color:var(--muted)}.contactLinks{display:grid;gap:10px}.contactLinks a{padding:15px;border:1px solid var(--line);background:#070b11;display:flex;justify-content:space-between;color:#d8e1ed;font-size:13px}.contactLinks a:hover{border-color:var(--cyan);color:var(--cyan)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#687487;font:700 11px ui-monospace,monospace;display:flex;justify-content:space-between}
+@media(max-width:850px){.hero,.about,.contact{grid-template-columns:1fr}.portrait{min-height:500px}.portrait img{height:500px}.cards{grid-template-columns:1fr 1fr}.projects,.info{grid-template-columns:1fr}.navlinks{display:none}}
+@media(max-width:560px){.wrap{width:calc(100% - 28px)}.hero{padding-top:120px}.hero h1{font-size:58px}.portrait{min-height:440px}.portrait img{height:430px}.cards{grid-template-columns:1fr}.contact{padding:30px}section{padding:80px 0}.title{display:block}.title p{margin-top:18px}footer{display:block}footer span{display:block;margin:6px 0}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav"><a class="logo" href="#home"><span class="logoMark">IH</span>IMRAN HASAN BADHON</a><div class="navlinks"><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#work">WORK</a><a href="#journey">JOURNEY</a><a href="#contact">CONTACT</a></div></div></nav>
+
+<main id="home">
+<section class="hero wrap">
+<div>
+<div class="micro">01 — Digital identity / Software + AI</div>
+<h1>Imran Hasan<br><em>Badhon.</em></h1>
+<p>I build thoughtful digital experiences at the intersection of <strong>software development, data science, machine learning and computer vision.</strong></p>
+<div class="buttons"><a class="btn primary" href="#work">Explore my work ↗</a><a class="btn" href="https://github.com/imranbrand" target="_blank">GitHub ↗</a><a class="btn" href="mailto:imranhasan10022@gmail.com">Start a conversation</a></div>
+</div>
+<div class="portrait"><div class="ring"></div><img src="profile.jpg" alt="Imran Hasan Badhon"><div class="floating f1">AVAILABLE / OPEN TO WORK</div><div class="floating f2">PYTHON • ML • CV</div><div class="floating f3">DHAKA / BANGLADESH</div></div>
+</section>
+
+<div class="marquee"><div class="track">SOFTWARE DEVELOPMENT <b>✦</b> DATA SCIENCE <b>✦</b> MACHINE LEARNING <b>✦</b> COMPUTER VISION <b>✦</b> PYTHON <b>✦</b> SOFTWARE DEVELOPMENT <b>✦</b> DATA SCIENCE <b>✦</b> MACHINE LEARNING <b>✦</b> COMPUTER VISION <b>✦</b></div></div>
+
+<section id="about"><div class="wrap"><div class="sectionNo">02 — About</div><div class="title"><h2>Not just a résumé.<br>A digital identity.</h2><p>A clean, focused portfolio designed to communicate capability quickly to recruiters, clients and collaborators.</p></div><div class="about"><p class="bigquote">“Curious by nature.<br><span>Builder by choice.</span><br>Always learning.”</p><div class="copy">I am a Computer Science graduate with a Master of Science from Jagannath University, specializing in Machine Learning, Data Science and Computer Vision. My work combines programming fundamentals with practical experimentation, from responsive web applications to deep-learning projects. I enjoy solving problems, debugging systems and turning technical ideas into usable products.</div></div></div></section>
+
+<section id="skills"><div class="wrap"><div class="sectionNo">03 — Capabilities</div><div class="title"><h2>Tools I work with.</h2><p>A focused technical stack presented around the kind of work I want to do professionally.</p></div><div class="cards">
+<div class="card"><h3>01 / Build</h3><p>Frontend and backend development for responsive, useful web applications.</p><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Flask</span></div></div>
+<div class="card"><h3>02 / Intelligence</h3><p>Machine learning and computer vision workflows, model experimentation and data-driven problem solving.</p><div class="tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">CNN</span><span class="tag">LSTM</span><span class="tag">NumPy</span></div></div>
+<div class="card"><h3>03 / Ship</h3><p>Databases, APIs, deployment and engineering practices for reliable digital products.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span><span class="tag">AWS</span><span class="tag">Vercel</span><span class="tag">Git</span></div></div>
+</div></div></section>
+
+<section id="work"><div class="wrap"><div class="sectionNo">04 — Selected work</div><div class="title"><h2>Small projects.<br>Real skills.</h2><p>Selected projects from the supplied CV, reframed as concise proof of technical ability.</p></div><div class="projects">
+<article class="project"><div><div class="projectNo">CASE 01 / WEB</div><h3>Temperature Converter</h3><p>A responsive converter for Celsius, Fahrenheit and Kelvin with instant calculations, validation and DOM/event handling.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div><div class="arrow">↗</div></article>
+<article class="project"><div><div class="projectNo">CASE 02 / AI</div><h3>Image Caption Generator</h3><p>A deep-learning system combining Xception CNN feature extraction with LSTM caption generation, trained on the Flickr8k dataset.</p><div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Computer Vision</span></div></div><div class="arrow">↗</div></article>
+</div></div></section>
+
+<section id="journey"><div class="wrap"><div class="sectionNo">05 — Journey</div><div class="title"><h2>Education & direction.</h2></div><div class="info">
+<div class="card"><h3>Education</h3><div class="line"><span>Degree</span><strong>Master of Science</strong></div><div class="line"><span>University</span><strong>Jagannath University</strong></div><div class="line"><span>Specialization</span><strong>ML · Data Science · CV</strong></div></div>
+<div class="card"><h3>Academic work</h3><div class="line"><span>Project</span><strong>Image Caption Generator</strong></div><div class="line"><span>Supervisor</span><strong>Dr Selina Sharmin</strong></div><div class="line"><span>Focus</span><strong>CNN · LSTM · Flickr8k</strong></div></div>
+<div class="card"><h3>Certificates</h3><div class="line"><span>Course</span><strong>Python for Data Science & ML</strong></div><div class="line"><span>Course</span><strong>Deep Learning Specialization</strong></div></div>
+<div class="card"><h3>Languages</h3><div class="line"><span>Bangla</span><strong>Native</strong></div><div class="line"><span>English</span><strong>Professional</strong></div><div class="line"><span>Interests</span><strong>Coding · Algorithms · Git</strong></div></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap"><div class="contact"><div><div class="sectionNo">06 — Contact</div><h2>Let’s build<br>something useful.</h2><p>For professional opportunities, collaboration or project discussions.</p></div><div class="contactLinks">
+<a href="mailto:imranhasan10022@gmail.com"><span>EMAIL</span><span>imranhasan10022@gmail.com ↗</span></a>
+<a href="https://github.com/imranbrand" target="_blank"><span>GITHUB</span><span>@imranbrand ↗</span></a>
+<a href="https://www.linkedin.com/in/imran-hasan-b4a4921a7/" target="_blank"><span>LINKEDIN</span><span>PROFILE ↗</span></a>
+<a href="https://www.facebook.com/imran.hasan.199690" target="_blank"><span>FACEBOOK</span><span>PROFILE ↗</span></a>
+<a href="tel:01987850183"><span>PHONE</span><span>01987850183 ↗</span></a>
+</div></div></div></section>
+</main>
+<footer class="wrap"><span>© 2026 IMRAN HASAN BADHON</span><span>SOFTWARE • DATA • AI</span></footer>
+</body></html>
