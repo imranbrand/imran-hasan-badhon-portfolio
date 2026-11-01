@@ -3,9 +3,9 @@
     <div class="wrap">
         <div class="head rv">
             <p class="label">Selected work</p>
-            <h2>Three projects, three kinds of problems.</h2>
+            <h2>Four projects, four kinds of problems.</h2>
             <p class="sub">
-                E-commerce engineering, deep learning research and a Bengali-first family wellness application.
+                E-commerce engineering, deep learning research, family wellness and Bengali-first interactive web experiences.
             </p>
         </div>
 
@@ -18,6 +18,8 @@
                         @include('partials.mock-cnn')
                     @elseif ($project['slug'] === 'dhukpuk-health-tracker')
                         @include('partials.mock-dhukpuk')
+                    @elseif ($project['slug'] === 'bangla-challenge-lab')
+                        @include('partials.mock-lab')
                     @endif
                 </div>
 

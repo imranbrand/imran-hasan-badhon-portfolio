@@ -174,7 +174,7 @@ return [
             ],
 
             'link'   => null,
-            'github' => 'https://github.com/imranbrand',
+            'github' => 'https://github.com/imranbrand/iblcart24',
         ],
 
         // PROJECT 02: CNN-LSTM IMAGE CAPTION GENERATOR
@@ -227,7 +227,7 @@ return [
             ],
 
             'link'   => null,
-            'github' => 'https://github.com/imranbrand',
+            'github' => 'https://github.com/imranbrand/cnn-lstm-image-caption-generator',
         ],
 
         // PROJECT 03: DHUKPUK — SHORIR-DORPON
@@ -285,6 +285,32 @@ return [
             'link'   => 'https://dhukpuk-sreer-drpn.hatchable.site',
             'github' => 'https://github.com/imranbrand/dhukpuk-health-tracker',
         ],
+        // PROJECT 04: BANGLA CHALLENGE LAB
+        [
+            'slug'     => 'bangla-challenge-lab',
+            'kind'     => 'Interactive Web Application',
+            'title'    => 'Bangla Challenge Lab',
+            'tagline'  => 'A Bengali-first interactive quiz and social sharing experience.',
+            'summary'  => 'An interactive Bangla quiz that calculates a Tech-Smart score and presents a shareable result.',
+            'status'   => 'Live on GitHub Pages.',
+            'role'     => 'Creator and developer: concept, frontend implementation and deployment.',
+            'stack'    => ['HTML5', 'CSS3', 'JavaScript', 'Open Graph', 'GitHub Pages'],
+            'features' => [
+                ['Quiz', 'Seven-question interactive quiz.'],
+                ['Result', 'Displays a Tech-Smart score.'],
+                ['Sharing', 'Supports sharing quiz results on social platforms.'],
+                ['Bengali UI', 'Bengali-first responsive interface.'],
+            ],
+            'flow' => [
+                ['Start', 'Open the quiz'],
+                ['Answer', 'Complete seven questions'],
+                ['Result', 'View the score'],
+                ['Share', 'Share the result'],
+            ],
+            'link'   => 'https://imranbrand.github.io/bangla-challenge-lab/',
+            'github' => 'https://github.com/imranbrand/bangla-challenge-lab',
+        ],
+
     ],
 
     'skills' => [
