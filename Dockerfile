@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     libzip-dev \
     libicu-dev \
+    libonig-dev \
     libpng-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
