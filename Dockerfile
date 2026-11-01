@@ -42,6 +42,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" \
         pdo_pgsql \
+        pdo_sqlite \
         mbstring \
         bcmath \
         intl \
@@ -60,13 +61,14 @@ COPY --from=frontend /app/public/build ./public/build
 
 COPY docker/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
 
-RUN mkdir -p storage/framework/cache \
+RUN mkdir -p database storage/framework/cache \
     storage/framework/sessions \
     storage/framework/views \
     storage/logs \
     bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R ug+rwx storage bootstrap/cache
+    && touch database/database.sqlite \
+    && chown -R www-data:www-data database storage bootstrap/cache \
+    && chmod -R ug+rwx database storage bootstrap/cache
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 ENV PORT=10000
