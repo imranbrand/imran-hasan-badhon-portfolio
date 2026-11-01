@@ -25,7 +25,7 @@ return [
         'lead'       => 'I build dependable web applications and applied machine-learning systems. From a Bangladesh-ready Laravel store to a CNN-LSTM image captioning model, I take an idea from data and design to a working product.',
         'about'      => [
             'I come from a Computer Science and Engineering background, with a foundation in programming, database management and computer vision.',
-            'My Master of Science studies at Jagannath University focused on Machine Learning, Data Science and Computer Vision. My research project is an Image Caption Generator that pairs Xception CNN features with an LSTM language model.',
+            'I completed my Master of Science (M.Sc.) in Computer Science and Engineering at Jagannath University. My academic focus included Machine Learning, Data Science and Computer Vision. My research project was an Image Caption Generator that pairs Xception CNN features with an LSTM language model.',
             'On the web side I build and maintain IBL CART 24, a Laravel e-commerce platform for the Bangladesh market, covering local payment flows, an admin panel, order handling and launch hardening.',
         ],
         'location'   => 'Bangladesh',
@@ -60,7 +60,7 @@ return [
         ],
         [
             'label' => 'Degree',
-            'value' => 'M.Sc., Jagannath University',
+            'value' => 'M.Sc. in CSE — Completed',
         ],
         [
             'label' => 'Based in',
@@ -378,9 +378,14 @@ return [
 
     'education' => [
         [
-            'when'  => 'Master of Science',
+            'when'  => 'M.Sc. — Completed',
             'title' => 'Jagannath University',
-            'text'  => 'Specialised in Machine Learning, Data Science and Computer Vision. Research project: Image Caption Generator, supervised by Dr. Selina Sharmin.',
+            'text'  => 'Master of Science in Computer Science and Engineering. Specialized in Machine Learning, Data Science and Computer Vision. Research: Image Caption Generator, supervised by Dr. Selina Sharmin.',
+        ],
+        [
+            'when'  => 'B.Sc.',
+            'title' => 'Bangladesh University',
+            'text'  => 'Bachelor of Science in Computer Science and Engineering. CGPA: 3.41 / 4.00.',
         ],
         [
             'when'  => 'Certificate',
