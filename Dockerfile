@@ -1,4 +1,4 @@
-# Stage 1: Build frontend assets
+﻿# Stage 1: Build frontend assets
 FROM node:22-bookworm-slim AS frontend
 
 WORKDIR /app
@@ -79,5 +79,6 @@ ENV PORT=10000
 
 EXPOSE 10000
 
-CMD ["bash", "-lc", "php artisan migrate --force && apache2-foreground"]
+CMD ["bash", "-lc", "php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && apache2-foreground"]
+
 
