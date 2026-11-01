@@ -1,4 +1,4 @@
-﻿# Stage 1: Build frontend assets
+# Stage 1: Build frontend assets
 FROM node:22-bookworm-slim AS frontend
 
 WORKDIR /app
@@ -61,9 +61,21 @@ COPY . .
 COPY --from=vendor /app/vendor ./vendor
 COPY --from=frontend /app/public/build ./public/build
 
-RUN sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf \
-    && sed -i 's/^Listen 80$/Listen 10000/' /etc/apache2/ports.conf \
-    && printf '\n<Directory /var/www/html/public>\n    AllowOverride All\n    Require all granted\n    Options FollowSymLinks\n</Directory>\n' >> /etc/apache2/apache2.conf
+RUN printf '%s\n' \
+    '<VirtualHost *:10000>' \
+    '    ServerName localhost' \
+    '    DocumentRoot /var/www/html/public' \
+    '    DirectoryIndex index.php' \
+    '    <Directory /var/www/html/public>' \
+    '        AllowOverride All' \
+    '        Require all granted' \
+    '        Options FollowSymLinks' \
+    '    </Directory>' \
+    '    ErrorLog ${APACHE_LOG_DIR}/error.log' \
+    '    CustomLog ${APACHE_LOG_DIR}/access.log combined' \
+    '</VirtualHost>' \
+    > /etc/apache2/sites-available/000-default.conf \
+    && sed -i 's/^Listen 80$/Listen 10000/' /etc/apache2/ports.conf
 
 RUN mkdir -p database storage/framework/cache \
     storage/framework/sessions \
@@ -80,5 +92,3 @@ ENV PORT=10000
 EXPOSE 10000
 
 CMD ["bash", "-lc", "php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && apache2-foreground"]
-
-
