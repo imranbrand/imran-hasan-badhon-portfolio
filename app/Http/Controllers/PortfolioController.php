@@ -4,11 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PortfolioController extends Controller
 {
-    public function home(): View
+    public function home(Request $request): View
     {
+        // Temporary diagnostic: never log session IDs or CSRF tokens.
+        $hasSession = $request->hasSession();
+
+        Log::info('Portfolio session diagnostic', [
+            'session_driver' => config('session.driver'),
+            'session_cookie_configured' => filled(config('session.cookie')),
+            'request_has_session' => $hasSession,
+            'session_started' => $hasSession
+                ? $request->session()->isStarted()
+                : false,
+            'request_is_secure' => $request->isSecure(),
+        ]);
+
         $p = config('portfolio');
 
         return view('pages.home', [
@@ -57,3 +72,4 @@ class PortfolioController extends Controller
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
     }
 }
+
