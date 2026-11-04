@@ -21,6 +21,35 @@ class LogSessionCookieResponse
             'has_set_cookie_header' => $response->headers->has('Set-Cookie'),
         ]);
 
+        $registered = header_register_callback(
+            static function (): void {
+                $headers = headers_list();
+                $cookieNames = [];
+                $cookieCount = 0;
+
+                foreach ($headers as $header) {
+                    if (preg_match(
+                        '/^Set-Cookie:\s*([^=;]+)/i',
+                        $header,
+                        $matches
+                    )) {
+                        $cookieCount++;
+                        $cookieNames[] = $matches[1];
+                    }
+                }
+
+                Log::info('Portfolio PHP SAPI header diagnostic', [
+                    'sapi_header_count' => count($headers),
+                    'sapi_set_cookie_count' => $cookieCount,
+                    'sapi_cookie_names' => $cookieNames,
+                ]);
+            }
+        );
+
+        Log::info('Portfolio PHP header callback registration', [
+            'registered' => $registered,
+        ]);
+
         return $response;
     }
 }
