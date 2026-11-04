@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         // Trust the reverse proxy headers provided by Render.
         $middleware->trustProxies(at: '*');
+        $middleware->appendToGroup('web', [\App\Http\Middleware\LogSessionCookieResponse::class]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
