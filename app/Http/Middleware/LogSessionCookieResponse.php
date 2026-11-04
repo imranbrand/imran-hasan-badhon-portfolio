@@ -16,32 +16,50 @@ class LogSessionCookieResponse
         $cookies = $response->headers->getCookies();
 
         Log::info('Portfolio response cookie diagnostic', [
-            'response_has_cookies' => count($cookies) > 0,
             'response_cookie_count' => count($cookies),
             'has_set_cookie_header' => $response->headers->has('Set-Cookie'),
         ]);
 
+        $headersBeforeSend = headers_list();
+        $cookieNamesBeforeSend = [];
+
+        foreach ($headersBeforeSend as $header) {
+            if (preg_match(
+                '/^Set-Cookie:\s*([^=;]+)/i',
+                $header,
+                $matches
+            )) {
+                $cookieNamesBeforeSend[] = $matches[1];
+            }
+        }
+
+        Log::info('Portfolio PHP headers before response return', [
+            'sapi_header_count' => count($headersBeforeSend),
+            'sapi_set_cookie_count' => count($cookieNamesBeforeSend),
+            'sapi_cookie_names' => $cookieNamesBeforeSend,
+            'headers_sent' => headers_sent(),
+        ]);
+
         $registered = header_register_callback(
             static function (): void {
-                $headers = headers_list();
-                $cookieNames = [];
-                $cookieCount = 0;
+                $headersAtSend = headers_list();
+                $cookieNamesAtSend = [];
 
-                foreach ($headers as $header) {
+                foreach ($headersAtSend as $header) {
                     if (preg_match(
                         '/^Set-Cookie:\s*([^=;]+)/i',
                         $header,
                         $matches
                     )) {
-                        $cookieCount++;
-                        $cookieNames[] = $matches[1];
+                        $cookieNamesAtSend[] = $matches[1];
                     }
                 }
 
-                Log::info('Portfolio PHP SAPI header diagnostic', [
-                    'sapi_header_count' => count($headers),
-                    'sapi_set_cookie_count' => $cookieCount,
-                    'sapi_cookie_names' => $cookieNames,
+                Log::info('Portfolio PHP SAPI header callback executed', [
+                    'sapi_header_count' => count($headersAtSend),
+                    'sapi_set_cookie_count' => count($cookieNamesAtSend),
+                    'sapi_cookie_names' => $cookieNamesAtSend,
+                    'headers_sent' => headers_sent(),
                 ]);
             }
         );
