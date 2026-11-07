@@ -71,6 +71,11 @@ RUN printf '%s\n' \
     '        Require all granted' \
     '        Options FollowSymLinks' \
     '    </Directory>' \
+    '    Header always set X-Content-Type-Options "nosniff"' \
+    '    Header always set X-Frame-Options "SAMEORIGIN"' \
+    '    Header always set Referrer-Policy "strict-origin-when-cross-origin"' \
+    '    Header always set Strict-Transport-Security "max-age=15552000"' \
+    '    Header always set Permissions-Policy "geolocation=(), microphone=()"' \
     '    ErrorLog ${APACHE_LOG_DIR}/error.log' \
     '    CustomLog ${APACHE_LOG_DIR}/access.log combined' \
     '</VirtualHost>' \
