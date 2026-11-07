@@ -11,7 +11,31 @@ class LogSessionCookieResponse
 {
     public function handle(Request $request, Closure $next): Response
     {
+        $entryFile = null;
+        $entryLine = null;
+
+        $headersSentAtEntry = headers_sent($entryFile, $entryLine);
+
+        Log::info('Portfolio output diagnostic at middleware entry', [
+            'headers_sent' => $headersSentAtEntry,
+            'output_started_file' => $entryFile ?: null,
+            'output_started_line' => $entryLine ?: null,
+        ]);
+
         $response = $next($request);
+
+        $outputFile = null;
+        $outputLine = null;
+
+        $headersSentAfterNext = headers_sent($outputFile, $outputLine);
+
+        Log::info('Portfolio output diagnostic after next', [
+            'headers_sent' => $headersSentAfterNext,
+            'output_started_file' => $outputFile ?: null,
+            'output_started_line' => $outputLine ?: null,
+            'output_buffer_level' => ob_get_level(),
+            'php_sapi' => PHP_SAPI,
+        ]);
 
         $cookies = $response->headers->getCookies();
 
