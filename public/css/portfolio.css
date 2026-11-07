@@ -536,4 +536,69 @@ h1 em { font-style: normal; background: linear-gradient(100deg, var(--accent), v
         letter-spacing: .5px;
     }
 }
+/* Mobile navigation improvements */
+@media (max-width: 860px) {
+    .bar-in {
+        height: auto;
+        min-height: 66px;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        padding-block: 10px;
+    }
+
+    .nav {
+        display: flex;
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        gap: 2px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav a {
+        flex: 0 0 auto;
+        padding: 8px 10px;
+    }
+
+    .pill {
+        margin-left: auto;
+    }
+}
+
+/* Extra-small mobile screens */
+@media (max-width: 480px) {
+    .bar-in {
+        padding-inline: 14px;
+        gap: 8px 10px;
+    }
+
+    .logo {
+        font-size: 0.82rem;
+        gap: 8px;
+    }
+
+    .mark {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+    }
+
+    .pill {
+        font-size: 0.8rem;
+        padding: 9px 12px;
+    }
+
+    .nav a {
+        font-size: 0.84rem;
+        padding: 8px 10px;
+    }
+}
 
